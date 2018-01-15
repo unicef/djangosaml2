@@ -160,9 +160,6 @@ class Saml2Backend(ModelBackend):
         user_query_args = self.get_user_query_args(main_attribute)
         user_create_defaults = {django_user_main_attribute: main_attribute}
 
-        if django_user_main_attribute != 'username':
-            user_query_args['username'] = main_attribute
-
         User = get_saml_user_model()
         try:
             user, created = User.objects.get_or_create(
