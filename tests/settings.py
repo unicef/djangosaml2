@@ -46,8 +46,6 @@ MIDDLEWARE = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-if django.VERSION < (1, 10):
-    MIDDLEWARE_CLASSES = MIDDLEWARE
 
 ROOT_URLCONF = 'testprofiles.urls'
 
@@ -162,3 +160,5 @@ LOGGING = {
 AUTHENTICATION_BACKENDS = (
     'djangosaml2.backends.Saml2Backend',
 )
+
+SAML_CONFIG={}

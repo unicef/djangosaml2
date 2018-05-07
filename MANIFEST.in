@@ -1,6 +1,14 @@
-include README
+include README.rst
 include CHANGES
 include COPYING
-global-include *.html *.csr *.key *.pem *.xml
-include djangosaml2/tests/attribute-maps/*.py
-global-exclude *.pyc
+exclude tox.ini
+
+recursive-include djangosaml2 *
+
+global-exclude __pycache__
+global-exclude .tox
+global-exclude *.py[co]
+
+recursive-exclude djangosaml2/tests *
+recursive-exclude tests *
+

@@ -1,11 +1,12 @@
-===========
-djangosaml2
-===========
+==================
+unicef-djangosaml2
+==================
 
-.. image:: https://travis-ci.org/knaperek/djangosaml2.svg?branch=master
-    :target: https://travis-ci.org/knaperek/djangosaml2
+.. image:: https://travis-ci.org/unicef/djangosaml2.svg?branch=master
+    :target: https://travis-ci.org/unicef/djangosaml2
     :align: left
 
+Fork of the original knaperek/djangosaml2 and no longer maintained djangosaml2 library.
 
 djangosaml2 is a Django application that integrates the PySAML2 library
 into your project. This mean that you can protect your Django based project
@@ -13,6 +14,22 @@ with a service provider based on PySAML. This way it will talk SAML2 with
 your Identity Provider allowing you to use this authentication mechanism.
 This document will guide you through a few simple steps to accomplish
 such goal.
+
+Note about this distribution
+============================
+
+- package name is the same as the mainstream (djangosaml2)
+- distutils name differs (unicef-djangosaml2)
+- version number use the same value as the mainstream
+- only tested on python>=3.6, django>=1.10
+- removes tests from package (package size ~50%)
+
+Implementation differences
+--------------------------
+
+- `finish_logout` always performs django logout without logging out from SAML
+
+
 
 .. contents::
 

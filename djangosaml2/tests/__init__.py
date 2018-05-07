@@ -447,8 +447,14 @@ class SAML2Tests(TestCase):
 
     def test_finish_logout_renders_error_template(self):
         request = RequestFactory().get('/bar/foo')
+        # adding session. it's needed during logout
+        middleware = SessionMiddleware()
+        middleware.process_request(request)
+        request.session.save()
+
         response = finish_logout(request, None)
-        self.assertContains(response, "<h1>Logout error</h1>", status_code=200)
+        # here we diverge from original package
+        self.assertNotContains(response, "<h1>Logout error</h1>", status_code=200)
 
     def _test_metadata(self):
         settings.SAML_CONFIG = conf.create_conf(
